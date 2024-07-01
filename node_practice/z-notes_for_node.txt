@@ -1,0 +1,21 @@
+create a file  package ,json file using (npm init -y)
+
+create a file (ex.  => server.js)
+
+code in it and run using (node filename => node server.js)
+        or create a server in the package.json scripts 
+            "serve": "node server.js"
+            after that to run the code type (npm run serve)
+
+
+
+create   line ==>   const express = require('express');
+
+create an app const ==>const app = express()
+
+
+
+        client to nodeapp =>Request
+        nodeapp to client ==> response
+app. get that means ==> app.get route 
+
