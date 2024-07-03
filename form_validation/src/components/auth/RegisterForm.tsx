@@ -93,7 +93,7 @@ const RegisterForm = () => {
 
                         <FormField control={form.control} name="password" render={({ field }) => (
                             <FormItem className="flex flex-col">
-                                <FormLabel>Password</FormLabel>
+                                <FormLabel className="">Password</FormLabel>
                                 <FormControl>
                                     <input {...field} type="password" placeholder="********" className="border-gray-500 border rounded py-4 px-6" />
                                 </FormControl>
