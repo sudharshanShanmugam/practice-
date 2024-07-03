@@ -1,6 +1,6 @@
 
 
-import  express from 'express';
+import express from 'express';
 import { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import Product from './models/productModel';
@@ -24,7 +24,7 @@ app.get('/products', async (req: Request, res: Response) => {
     try {
         const products = await Product.find({});
         res.status(200).json(products);
-    } catch (error:any) {
+    } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
 });
@@ -35,7 +35,7 @@ app.get('/products/:id', async (req: Request, res: Response) => {
         const { id } = req.params;
         const product = await Product.findById(id);
         res.status(200).json(product);
-    } catch (error:any) {
+    } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
 });
@@ -45,7 +45,7 @@ app.post('/products', async (req: Request, res: Response) => {
     try {
         const product = await Product.create(req.body);
         res.status(200).json(product);
-    } catch (error:any) {
+    } catch (error: any) {
         console.log(error.message);
         res.status(500).json({ message: error.message });
     }
@@ -59,15 +59,14 @@ app.put('/products/:id', async (req: Request, res: Response) => {
             return res.status(404).json({ message: "Product not found" });
         }
         res.status(200).json(product);
-    } catch (error :any) {
+    } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
 });
 
-mongoose.connect('mongodb+srv://admin:12345sudhar@sudharshanapi.b2jfn.mongodb.net/test?retryWrites=true&w=majority&appName=sudharshanAPI')
+mongoose.connect(process.env.MONGODB_URI as string)
     .then(() => {
         console.log('Connected to MongoDB');
-
         app.listen(port, () => {
             console.log(`API app running on localhost port ${port}`);
         });
